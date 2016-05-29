@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/app.jsx",
   "scripts": {
-    "start": "npm run build && node server.js",
-    "build": "webpack"
+    "start": "node server.js",
+    "dev": "webpack && node server.js",
+    "postinstall": "webpack --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",
