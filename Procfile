@@ -1,1 +1,1 @@
-web: npm run postinstall && node server.js
+web: node server.js
