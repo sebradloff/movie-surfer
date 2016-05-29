@@ -3,7 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 let Config = {
-  devtool: 'eval',
+  devtool: 'source-map',
   context: path.join(__dirname, '/src'),
   entry: "./app.jsx",
   output: {
@@ -13,6 +13,15 @@ let Config = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
+  plugins: [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      }
+    })
+  ],
   module: {
     loaders: [
       {
