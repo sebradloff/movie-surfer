@@ -8,7 +8,7 @@
     "//": "dev runs webpack --watch and the server so anychanges to the components are hot swapped",
     "dev": "concurrently \"webpack --watch\" \"node server.js\"",
     "//": "postinstall script for heroku to chose prod webpack",
-    "heroku-postbuild": "webpack --config webpack.prod.config.js",
+    "postinstall": "if [ \"$NODE_ENV\" = \"production\" ]; then webpack --config webpack.prod.config.js; fi",
     "//": "lint browser is responsible for linting browser specifc code",
     "lint:browser": "eslint --config=./.eslintrc src/*.js*"
   },
