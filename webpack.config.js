@@ -1,11 +1,9 @@
-'use strict';
 const path = require('path');
-const webpack = require('webpack');
 
-let Config = {
+const Config = {
   devtool: 'eval',
   context: path.join(__dirname, '/src'),
-  entry: "./app.jsx",
+  entry: './app.jsx',
   output: {
     path: path.join(__dirname, '/dist/js'),
     filename: 'bundle.js'
@@ -22,6 +20,6 @@ let Config = {
       }
     ]
   }
-}
+};
 
 module.exports = Config;
