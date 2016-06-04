@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node server.js",
     "dev": "webpack && node server.js",
-    "postinstall": "webpack --config webpack.prod.config.js"
+    "//": "postinstall is used for Heroku only",
+    "postinstall": "webpack --config webpack.prod.config.js",
+    "//": "lint browser is responsible for linting browser specifc code",
+    "lint:browser": "eslint --config=./.eslintrc src/*.js*"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +24,11 @@
     "webpack": "^1.13.1"
   },
   "devDependencies": {
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.2.3",
+    "eslint-plugin-react": "^5.1.1",
     "node-libs-browser": "^1.0.0",
     "path": "^0.12.7"
   }
