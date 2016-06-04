@@ -5,8 +5,9 @@
   "main": "src/app.jsx",
   "scripts": {
     "start": "node server.js",
-    "dev": "webpack && node server.js",
-    "//": "postinstall for Heroku only",
+    "//": "dev runs webpack --watch and the server so anychanges to the components are hot swapped",
+    "dev": "concurrently \"webpack --watch\" \"node server.js\"",
+    "//": "postinstall script for heroku to chose prod webpack",
     "heroku-postbuild": "webpack --config webpack.prod.config.js",
     "//": "lint browser is responsible for linting browser specifc code",
     "lint:browser": "eslint --config=./.eslintrc src/*.js*"
@@ -24,6 +25,7 @@
     "webpack": "^1.13.1"
   },
   "devDependencies": {
+    "concurrently": "^2.1.0",
     "eslint": "^2.11.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.1",
