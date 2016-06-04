@@ -23,3 +23,4 @@ You can also run the linting task through the command line. However, it is best 
 ```
 npm run lint:browser
 ```
+You should run the lint command whenever you make changes to the .eslintrc file and then restart atom for the changes to take effect.
