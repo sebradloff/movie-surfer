@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "webpack && node server.js",
-    "//": "postinstall is used for Heroku only",
-    "postinstall": "webpack --config webpack.prod.config.js",
+    "//": "postinstall for Heroku only",
+    "heroku-postbuild": "webpack --config webpack.prod.config.js",
     "//": "lint browser is responsible for linting browser specifc code",
     "lint:browser": "eslint --config=./.eslintrc src/*.js*"
   },
