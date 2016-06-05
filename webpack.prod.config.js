@@ -1,11 +1,14 @@
-'use strict';
+// using require is how you include node_modules and other files into the current module
+// CommonJS and module pattern explanation: https://webpack.github.io/docs/commonjs.html
 const path = require('path');
 const webpack = require('webpack');
 
-let Config = {
+const Config = {
+  // devtool currently supported for production
+  // more info: https://webpack.github.io/docs/configuration.html#devtool
   devtool: 'source-map',
   context: path.join(__dirname, '/src'),
-  entry: "./app.jsx",
+  entry: './app.jsx',
   output: {
     path: path.join(__dirname, '/dist/js'),
     filename: 'bundle.js'
@@ -13,6 +16,7 @@ let Config = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
+  // list of webpack plugins: https://webpack.github.io/docs/list-of-plugins.html
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
@@ -31,6 +35,6 @@ let Config = {
       }
     ]
   }
-}
+};
 
 module.exports = Config;
