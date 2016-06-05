@@ -1,12 +1,10 @@
-'use strict';
-var express = require('express');
-var path = require('path');
-let app = express();
-let router = express.Router();
-let port = process.env.PORT || 8080;
+const express = require('express');
+const path = require('path');
+const app = express();
+const port = process.env.PORT || 8080;
 
 /* serve dist which contains bundled resources */
-let distDir = path.join(__dirname, 'dist/');
+const distDir = path.join(__dirname, 'dist/');
 app.use('/dist', express.static(distDir));
 
 /* serve index.html on all routes */
@@ -15,6 +13,6 @@ app.get('*', (request, response) => {
 });
 
 app.listen(port, () => {
-  console.log('Starting App.');
-  console.log('Magic happens on port ' + port + '!');
+  console.warn('Starting App.');
+  console.warn(`Magic happens on port ${port}!`);
 });

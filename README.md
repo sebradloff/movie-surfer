@@ -6,7 +6,7 @@ To show how to create a React standardized project
   - How to think about React components.
 
 ## Initial Setup
-### package.json and express
+### package.json and express install
   1. Once you've created and entered your project root folder, run `$ npm init` and follow the instructions to create a `package.json` file.
   2. Install express `$ npm install express --save` which adds express to your `package.json` as a dependency and creates a `node_modules` directory. Add `node_modules` to your `.gitignore`. Read more [here](https://docs.npmjs.com/) to understand npm and how to setup your `package.json`.
   3. As you add more packages, make sure to run `$ npm install` if you are not adding them through the npm cli.
@@ -17,6 +17,13 @@ To show how to create a React standardized project
   3. Create both a `webpack.config.js` and a `webpack.prod.config.js`, for local and prod configurations respectively.
   4. Create a `.babelrc` file with the same config. Learn more about babel [here](https://babeljs.io/blog/2015/10/31/setting-up-babel-6)
   5. Comments in each of the webpack file should help explain the configuration.
+
+### server.js
+  1. Create a `server.js` file at the root of your project.
+  2. You are serving the `index.html` file on each route, because it will hold the entry point of you application. It contains a basic HTML markup along with a div with the id *App*, and a script tag for your `bundle.js` file.
+  3. Given you have webpack bundling all your sources into a dist folder, you should statically serve that folder.
+  4. I highly recommend the [Code School course](http://campus.codeschool.com/courses/building-blocks-of-express-js/contents) if you've never used Express before.
+
 
 ## JavaScript, ES6 and JSX Linting
 Using Airbnb lint configuration follow the instructions [here](https://www.npmjs.com/package/eslint-config-airbnb) to download the correct packages.
