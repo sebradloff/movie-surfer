@@ -8,7 +8,7 @@ const Config = {
   // more info: https://webpack.github.io/docs/configuration.html#devtool
   devtool: 'source-map',
   context: path.join(__dirname, '/src'),
-  entry: './app.jsx',
+  entry: './index.js',
   output: {
     path: path.join(__dirname, '/dist/js'),
     filename: 'bundle.js'

@@ -6,8 +6,8 @@ const Config = {
   devtool: 'eval',
   // context sets the main folder for our app
   context: path.join(__dirname, '/src'),
-  // the file that is the entry point to the application
-  entry: './app.jsx',
+  // the file that is the entry point to the application containing the routes
+  entry: './index.js',
   // the name of our bundled file will be placed in the /dist/js folder called bundle.js
   output: {
     path: path.join(__dirname, '/dist/js'),

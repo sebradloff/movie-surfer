@@ -28,6 +28,12 @@ To show how to create a React standardized project
   3. Given you have webpack bundling all your sources into a dist folder, you should statically serve that folder.
   4. I highly recommend the [Code School course](http://campus.codeschool.com/courses/building-blocks-of-express-js/contents) if you've never used Express before.
 
+### React Router
+  1. [Fantastic tutorial on React router](https://github.com/reactjs/react-router-tutorial), it explains the intricacies of routing with React far better than I can.
+  2. `$ npm install -D react-router`
+  3. Create an `index.js` file in the src folder. This file will contain all the routes for you application.
+  4. Comments in the `index.js` file should help explain the routing configuration.
+
 
 ## JavaScript, ES6 and JSX Linting
 Using Airbnb lint configuration follow the instructions [here](https://www.npmjs.com/package/eslint-config-airbnb) to download the correct packages.

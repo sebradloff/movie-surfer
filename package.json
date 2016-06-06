@@ -2,14 +2,12 @@
   "name": "movie-surfer",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.jsx",
+  "main": "src/index.js",
   "scripts": {
     "start": "node server.js",
-    "//": "dev runs webpack --watch and the server so anychanges to the components are hot swapped",
-    "dev": "concurrently \"webpack --watch\" \"node server.js\"",
-    "//": "postinstall script for heroku to chose prod webpack",
-    "postinstall": "if [ \"$NODE_ENV\" = \"production\" ]; then webpack --config webpack.prod.config.js; fi",
     "//": "lint browser is responsible for linting browser specifc code",
+    "dev": "concurrently \"webpack --watch\" \"node server.js\"",
+    "postinstall": "if [ \"$NODE_ENV\" = \"production\" ]; then webpack --config webpack.prod.config.js; fi",
     "lint:browser": "eslint --config=./.eslintrc src/*.js*"
   },
   "author": "",
@@ -32,6 +30,7 @@
     "eslint-plugin-jsx-a11y": "^1.2.3",
     "eslint-plugin-react": "^5.1.1",
     "node-libs-browser": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react-router": "^2.4.1"
   }
 }
