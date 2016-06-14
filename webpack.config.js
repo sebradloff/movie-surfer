@@ -1,4 +1,7 @@
+// using require is how you include node_modules and other files into the current module
+// CommonJS and module pattern explanation: https://webpack.github.io/docs/commonjs.html
 const path = require('path');
+const webpack = require('webpack');
 
 const Config = {
   // tool used to help with debugging
@@ -17,6 +20,14 @@ const Config = {
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
+  // make jquery available accross all modules, therefore you don't need to require it constantly
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    })
+  ],
   module: {
     loaders: [
       {

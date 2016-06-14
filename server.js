@@ -9,6 +9,9 @@ app.use('/dist', express.static(distDir));
 /* serve semantic bundle */
 const semanticDir = path.join(__dirname, 'semantic/');
 app.use('/semantic', express.static(semanticDir));
+/* serve up jquery from node_modules */
+const jquery = path.join(__dirname, 'node_modules', 'jquery', 'dist', 'jquery.min.js');
+app.use('/dist/js/jquery.min.js', express.static(jquery));
 
 /* serve index.html on all routes */
 app.get('*', (request, response) => {

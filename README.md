@@ -34,11 +34,15 @@ To show how to create a React standardized project
   3. Create an `index.js` file in the src folder. This file will contain all the routes for you application.
   4. Comments in the `index.js` file should help explain the routing configuration.
 
-### semantic-ui
+### semantic-ui and jQuery
   - [**semantic-ui**](http://semantic-ui.com/) is a great development framework to create responsive websites that are cross browser compatible.
   1. `$ npm install --save semantic-ui`
   2. You want to create a script in the `package.json` file which will run the gulp command to create all the semantic components. I've called it **build:semantic**.
   3. Serve up the `semantic` folder in the `server.js` file, then include the minified semantic css and js in the `index.html` as I've done.
+  4. `$ npm install --save jquery`
+  5. jQuery is necessary for semantic and the easiest way I've found to add it is to serve it statically in the `index.js` file and then include it in the `index.html`.
+  6. In the webpack config use the ProvidePlugin to add jquery, which makes it available to all react components.
+  7. Until [Startdust](https://github.com/TechnologyAdvice/stardust) is completed, you need to include jQuery when using semantic.
 
 ## JavaScript, ES6 and JSX Linting
 Using Airbnb lint configuration follow the instructions [here](https://www.npmjs.com/package/eslint-config-airbnb) to download the correct packages.
