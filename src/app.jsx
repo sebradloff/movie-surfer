@@ -4,7 +4,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        Hello World!
+        <h1 className="ui teal header">Hello World!</h1>
       </div>
     );
   }

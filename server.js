@@ -6,6 +6,9 @@ const port = process.env.PORT || 8080;
 /* serve dist which contains bundled resources */
 const distDir = path.join(__dirname, 'dist/');
 app.use('/dist', express.static(distDir));
+/* serve semantic bundle */
+const semanticDir = path.join(__dirname, 'semantic/');
+app.use('/semantic', express.static(semanticDir));
 
 /* serve index.html on all routes */
 app.get('*', (request, response) => {

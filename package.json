@@ -7,8 +7,9 @@
     "start": "node server.js",
     "//": "lint browser is responsible for linting browser specifc code",
     "dev": "concurrently \"webpack --watch\" \"node server.js\"",
-    "postinstall": "if [ \"$NODE_ENV\" = \"production\" ]; then webpack --config webpack.prod.config.js; fi",
-    "lint:browser": "eslint --config=./.eslintrc src/*.js*"
+    "postinstall": "if [ \"$NODE_ENV\" = \"production\" ]; then webpack --config webpack.prod.config.js && build:semantic; fi",
+    "lint:browser": "eslint --config=./.eslintrc src/*.js*",
+    "build:semantic": "cd semantic && gulp build"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "express": "^4.13.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "semantic-ui": "^2.1.8",
     "webpack": "^1.13.1"
   },
   "devDependencies": {
