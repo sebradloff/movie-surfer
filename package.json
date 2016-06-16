@@ -7,6 +7,7 @@
     "start": "node server.js",
     "//": "lint browser is responsible for linting browser specifc code",
     "dev": "concurrently \"webpack --watch\" \"node server.js\"",
+    "test": "mocha",
     "lint:browser": "eslint --config=./.eslintrc src/*.js*",
     "build:semantic": "cd semantic && gulp build",
     "postinstall": "if [ \"$NODE_ENV\" = \"production\" ]; then npm run build:heroku; fi",
@@ -29,12 +30,18 @@
   },
   "devDependencies": {
     "concurrently": "^2.1.0",
+    "enzyme": "^2.3.0",
     "eslint": "^2.11.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-jsx-a11y": "^1.2.3",
     "eslint-plugin-react": "^5.1.1",
+    "expect": "^1.20.1",
+    "jsdom": "^9.2.1",
+    "mocha": "^2.5.3",
     "node-libs-browser": "^1.0.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react-addons-test-utils": "^15.1.0",
+    "sinon": "^1.17.4"
   }
 }
