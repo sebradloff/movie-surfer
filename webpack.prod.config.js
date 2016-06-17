@@ -4,9 +4,6 @@ const path = require('path');
 const webpack = require('webpack');
 
 const Config = {
-  // devtool currently supported for production
-  // more info: https://webpack.github.io/docs/configuration.html#devtool
-  devtool: 'source-map',
   context: path.join(__dirname, '/src'),
   entry: './index.js',
   output: {
@@ -20,9 +17,16 @@ const Config = {
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
       compress: {
-        warnings: false
+        warnings: false,
+        screw_ie8: true
+      },
+      comments: false,
+      sourceMap: false
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
       }
     })
   ],
