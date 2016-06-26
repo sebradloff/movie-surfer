@@ -25,8 +25,7 @@
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1",
-    "semantic-ui": "^2.1.8",
-    "webpack": "^1.13.1"
+    "semantic-ui": "^2.1.8"
   },
   "devDependencies": {
     "concurrently": "^2.1.0",
@@ -42,6 +41,8 @@
     "node-libs-browser": "^1.0.0",
     "path": "^0.12.7",
     "react-addons-test-utils": "^15.1.0",
-    "sinon": "^1.17.4"
+    "sinon": "^1.17.4",
+    "react-router": "^2.4.1",
+    "webpack": "^1.13.1"
   }
 }

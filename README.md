@@ -17,10 +17,11 @@ To show how to create a React standardized project
 
 ### webpack and React
   1. [Here](http://survivejs.com/webpack/advanced-techniques/configuring-react/) is a decent writeup on how to configure webpack for React. webpack is an intricate module bundler and there is a [great course on Pluralsight](https://app.pluralsight.com/library/courses/webpack-fundamentals/table-of-contents) that I recommend for the basics.
-  2. `$ npm install webpack babel-core babel-loader babel-preset-es2015 babel-preset-react --save`
-  3. Create both a `webpack.config.js` and a `webpack.prod.config.js`, for local and prod configurations respectively.
-  4. Create a `.babelrc` file with the same config. Learn more about babel [here](https://babeljs.io/blog/2015/10/31/setting-up-babel-6)
-  5. Comments in each of the webpack file should help explain the configuration.
+  2. `$ npm install babel-core babel-loader babel-preset-es2015 babel-preset-react --save`
+  3. `$ npm install webpack -D` save webpack as devDependency instead of a global install so you don't run into any weird version issues.
+  4. Create both a `webpack.config.js` and a `webpack.prod.config.js`, for local and prod configurations respectively.
+  5. Create a `.babelrc` file with the same config. Learn more about babel [here](https://babeljs.io/blog/2015/10/31/setting-up-babel-6)
+  6. Comments in each of the webpack file should help explain the configuration.
 
 ### server.js
   1. Create a `server.js` file at the root of your project.
