@@ -7,6 +7,7 @@ To show how to create a React standardized project
 
 ## To Run this Project
   - `$ npm install` to install all dependencies
+  - `$ npm run build:semantic` to install the semantic bundle
   - `$ npm run dev` to run webpack and the node server
 
 ## Initial Setup
