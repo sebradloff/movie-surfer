@@ -10,6 +10,9 @@ To show how to create a React standardized project
   - `$ npm run build:semantic` to install the semantic bundle
   - `$ npm run dev` to run webpack and the node server
 
+## ToDo
+  - setup proper webpack-dev-server config
+
 ## Initial Setup
 ### package.json and express install
   1. Once you've created and entered your project root folder, run `$ npm init` and follow the instructions to create a `package.json` file.
