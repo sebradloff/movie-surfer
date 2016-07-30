@@ -2,20 +2,26 @@
 // CommonJS and module pattern explanation: https://webpack.github.io/docs/commonjs.html
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PATHS = {
   app: path.join(__dirname, '/src'),
-  distJS: path.join(__dirname, '/dist/js')
+  distJS: path.join(__dirname, '/dist/js'),
+  distCSS: path.join('../../dist/css')
 };
 
 const Config = {
   // tool used to help with debugging
   // more info: https://webpack.github.io/docs/configuration.html#devtool
-  devtool: 'eval',
+  devtool: 'source-map',
   // context sets the main folder for our app
   context: PATHS.app,
+  // the file that imports all our css
   // the file that is the entry point to the application containing the routes
-  entry: './index.js',
+  entry: [
+    './main.less',
+    './index.js'
+  ],
   // the name of our bundled file will be placed in the /dist/js folder called bundle.js
   output: {
     path: PATHS.distJS,
@@ -31,7 +37,9 @@ const Config = {
       $: 'jquery',
       jQuery: 'jquery',
       'window.jQuery': 'jquery'
-    })
+    }),
+    // takes the converted css file from the loader and publishes it to styles.css
+    new ExtractTextPlugin(path.join(PATHS.distCSS, '/styles.css'))
   ],
   module: {
     loaders: [
@@ -48,6 +56,11 @@ const Config = {
           babelrc: true
         },
         include: PATHS.app
+      },
+      // takes our main.less file and converts it to css
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
       }
     ]
   }
