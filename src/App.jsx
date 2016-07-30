@@ -1,12 +1,15 @@
 import React from 'react';
+import Header from './common/header/Header';
 
-export default class App extends React.Component {
+const App = () => {
+  return (
+    <div>
+      <header>
+        <Header />
+      </header>
+      <h1 className="ui teal header">Hello World!</h1>
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div>
-        <h1 className="ui teal header">Hello World!</h1>
-      </div>
-    );
-  }
-}
+export default App;
