@@ -3,17 +3,22 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const PATHS = {
+  app: path.join(__dirname, '/src'),
+  distJS: path.join(__dirname, '/dist/js')
+};
+
 const Config = {
   // tool used to help with debugging
   // more info: https://webpack.github.io/docs/configuration.html#devtool
   devtool: 'eval',
   // context sets the main folder for our app
-  context: path.join(__dirname, '/src'),
+  context: PATHS.app,
   // the file that is the entry point to the application containing the routes
   entry: './index.js',
   // the name of our bundled file will be placed in the /dist/js folder called bundle.js
   output: {
-    path: path.join(__dirname, '/dist/js'),
+    path: PATHS.distJS,
     filename: 'bundle.js'
   },
   // allows you to require your modules in other modules without specifying the extension
@@ -37,7 +42,12 @@ const Config = {
         // https://github.com/babel/babel-loader
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader?presets[]=es2015&presets[]=react'
+        loader: 'babel',
+        query: {
+          cacheDirectory: true,
+          babelrc: true
+        },
+        include: PATHS.app
       }
     ]
   }

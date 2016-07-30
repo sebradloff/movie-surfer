@@ -3,11 +3,16 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const PATHS = {
+  app: path.join(__dirname, '/src'),
+  distJS: path.join(__dirname, '/dist/js')
+};
+
 const Config = {
-  context: path.join(__dirname, '/src'),
+  context: PATHS.app,
   entry: './index.js',
   output: {
-    path: path.join(__dirname, '/dist/js'),
+    path: PATHS.distJS,
     filename: 'bundle.js'
   },
   resolve: {
@@ -35,7 +40,12 @@ const Config = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader?presets[]=es2015&presets[]=react'
+        loader: 'babel',
+        query: {
+          cacheDirectory: true,
+          babelrc: true
+        },
+        include: PATHS.app
       }
     ]
   }
