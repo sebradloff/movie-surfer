@@ -42,7 +42,6 @@
     "path": "^0.12.7",
     "react-addons-test-utils": "^15.1.0",
     "sinon": "^1.17.4",
-    "react-router": "^2.4.1",
     "webpack": "^1.13.1"
   }
 }

@@ -12,7 +12,6 @@ To show how to create a React standardized project
 
 ## ToDo
   - setup proper webpack-dev-server config
-  - ReactRouter should be a dependecy NOT devDep
 
 ## Initial Setup
 ### package.json and express install
