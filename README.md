@@ -11,7 +11,7 @@ To show how to create a React standardized project
   - `$ npm run dev` to run webpack and the node server
 
 ## ToDo
-  - setup proper webpack-dev-server config
+  - Setup dev vs prod webpacks
 
 ## Initial Setup
 ### package.json and express install
