@@ -5,8 +5,8 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PATHS = {
-  app: path.join(__dirname, '/src'),
-  distJS: path.join(__dirname, '/dist/js'),
+  app: path.join(__dirname, '../src'),
+  distJS: path.join(__dirname, '../dist/js'),
   distCSS: path.join('../../dist/css')
 };
 
