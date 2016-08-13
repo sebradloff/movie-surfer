@@ -1,4 +1,5 @@
 import React from 'react';
+import MovieCard from '../movie/MovieCard';
 
 const propTypes = {
   movies: React.PropTypes.array.isRequired
@@ -6,9 +7,9 @@ const propTypes = {
 
 const DiscoverMovies = ({ movies }) => {
   return (
-    <div>
+    <div className="ui padded centered grid">
       {movies.map((movie) => {
-        return (<div key={movie.id}>{movie.original_title}</div>);
+        return <MovieCard key={movie.id} info={movie} />;
       })
       }
     </div>
