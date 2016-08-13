@@ -1,20 +1,21 @@
-import request from 'request-promise';
+import fetch from 'isomorphic-fetch';
 
 class MovieApi {
 
-  discover() {
-    const options = {
-      uri: '/api/discover',
-      json: true
-    };
-
-    return request.get(options)
-      .then(response => {
-        return response;
-      })
-      .catch(failure => {
-        return failure;
-      });
+  discover(successCallback, failureCallback) {
+    fetch('/api/discover', {
+      method: 'GET'
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(movies => {
+      successCallback(movies);
+    })
+    .catch(error => {
+      console.error('Error occurred while fetching leads', error);
+      failureCallback(error);
+    });
   }
 }
 
