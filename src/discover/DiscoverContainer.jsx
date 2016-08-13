@@ -1,5 +1,8 @@
 import React from 'react';
+import deepEquals from 'deep-equal';
+
 import MovieApi from './movieApi';
+import Spinner from '../common/spinner/Spinner';
 
 export default class DiscoverContainer extends React.Component {
 
@@ -36,6 +39,9 @@ export default class DiscoverContainer extends React.Component {
   }
 
   render() {
+    if (deepEquals(this.state.movieData, {})) {
+      return <Spinner />;
+    }
     return (
       <div>Discover page</div>
     );
