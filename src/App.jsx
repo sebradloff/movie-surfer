@@ -1,15 +1,22 @@
 import React from 'react';
 import Header from './common/header/Header';
 
-const App = () => {
+const propTypes = {
+  children: React.PropTypes.element
+};
+
+const App = (props) => {
   return (
     <div>
       <header>
         <Header />
       </header>
-      <h1 className="ui teal header">Hello World!</h1>
+      <main>
+        {props.children}
+      </main>
     </div>
   );
 };
 
+App.propTypes = propTypes;
 export default App;
