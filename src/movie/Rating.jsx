@@ -1,6 +1,6 @@
 import React from 'react';
-/* the react-svg-inline-loader allows us to require in an svg just like any other module */
-import Star from './rating-star.svg';
+
+import Star from './Star';
 
 const MAX_NUM_OF_STARS = 10;
 
@@ -13,18 +13,18 @@ const createStars = (numOfStars) => {
   let negativeStars = MAX_NUM_OF_STARS - positiveStars;
   const stars = [];
   while (positiveStars > 0) {
-    stars.push(<Star key={`${positiveStars} positive`} className="positive-star" />);
+    stars.push(<Star key={`${positiveStars} positive`} classes="positive-star" />);
     positiveStars--;
   }
   while (negativeStars > 0) {
-    stars.push(<Star key={`${negativeStars} negative`} className="negative-star" />);
+    stars.push(<Star key={`${negativeStars} negative`} classes="negative-star" />);
     negativeStars--;
   }
   return stars;
 };
 
 const Rating = ({ rating }) => {
-  const stars = parseInt(rating, 10);
+  const stars = Math.round(rating);
   return (
     <div className="rating">
       {createStars(stars)}
