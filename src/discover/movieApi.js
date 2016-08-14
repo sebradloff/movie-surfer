@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch';
 class MovieApi {
 
   discover(successCallback, failureCallback) {
-    fetch('/api/discover', {
+    fetch('/api/v2/discover', {
       method: 'GET'
     })
     .then(response => {
