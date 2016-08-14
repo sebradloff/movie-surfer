@@ -7,7 +7,7 @@ const propTypes = {
 
 const DiscoverMovies = ({ movies }) => {
   return (
-    <div className="ui padded centered grid">
+    <div className="ui padded stackable centered grid">
       {movies.map((movie) => {
         return <MovieCard key={movie.id} info={movie} />;
       })

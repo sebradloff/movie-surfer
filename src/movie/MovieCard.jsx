@@ -7,7 +7,7 @@ const propTypes = {
 
 const MovieCard = ({ info }) => {
   return (
-    <div className="six wide column">
+    <div className="eight wide column">
       <h1 className="ui header">{info.original_title}</h1>
       <img alt={`${info.original_title} poster`} src={`https://image.tmdb.org/t/p/w342${info.poster_path}`}></img>
       <Rating rating={info.vote_average} />
