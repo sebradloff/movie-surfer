@@ -62,6 +62,8 @@ const Config = {
         test: /\.less$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
       },
+      // looks for all svg files, bundles them, and makes them available in a require.
+      // Checkout the Rating component for an example.
       {
         test: /\.svg$/,
         exclude: /node_modules/,

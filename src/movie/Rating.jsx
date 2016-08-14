@@ -1,6 +1,6 @@
 import React from 'react';
-
-const Star = require('./rating-star.svg');
+/* the react-svg-inline-loader allows us to require in an svg just like any other module */
+import Star from './rating-star.svg';
 
 const MAX_NUM_OF_STARS = 10;
 
