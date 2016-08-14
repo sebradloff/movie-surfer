@@ -30,6 +30,7 @@
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1",
+    "react-svg-inline-loader": "^0.2.2",
     "semantic-ui": "^2.1.8",
     "style-loader": "^0.13.1"
   },

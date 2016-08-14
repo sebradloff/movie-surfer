@@ -61,6 +61,11 @@ const Config = {
       {
         test: /\.less$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
+      },
+      {
+        test: /\.svg$/,
+        exclude: /node_modules/,
+        loader: 'react-svg-inline-loader'
       }
     ]
   }
