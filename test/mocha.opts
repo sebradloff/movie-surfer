@@ -1,3 +1,4 @@
+--require test/utils/null-compiler.js
 --require test/utils/dom.js
 --compilers jsx?:babel-core/register
 --recursive

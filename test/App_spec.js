@@ -1,14 +1,12 @@
 import React from 'react';
 import App from '../src/App';
+import Header from '../src/common/header/Header';
 import expect from 'expect';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('App', () => {
-  describe('component structure', () => {
-    it('should have an h1 with teal color', () => {
-      const wrapper = mount(< App />);
-
-      expect(wrapper.find('h1').hasClass('teal')).toBe(true);
-    });
+  it('should have a header', () => {
+    const wrapper = shallow(< App />);
+    expect(wrapper.contains(<Header />)).toBe(true);
   });
 });
