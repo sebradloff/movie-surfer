@@ -48,6 +48,13 @@ app.get('*', (request, response) => {
   response.sendFile(path.join(__dirname, 'index.html'));
 });
 
+/* if the movie_db_api_key is unset I want to crash the app */
+if (config.movie_db_api_key === undefined) {
+  console.warn('The movie db API key is not set');
+  console.warn('Shutting down...');
+  process.exit();
+}
+
 app.listen(port, () => {
   console.warn('Starting App.');
   console.warn(`Magic happens on port ${port}!`);
