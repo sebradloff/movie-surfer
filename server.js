@@ -17,9 +17,9 @@ app.use('/semantic', express.static(semanticDir));
 const jquery = path.join(__dirname, 'node_modules', 'jquery', 'dist', 'jquery.min.js');
 app.use('/dist/js/jquery.min.js', express.static(jquery));
 
-
+/* this call returns JSON from a file */
+/* this is nice for intial UI creation if you're not able to work with the api directly */
 const moviesJSONFile = path.join(__dirname, 'src/discover/movies.json');
-
 const discoverMoviesJSON = JSON.parse(fs.readFileSync(moviesJSONFile, 'utf8'));
 app.get('/api/v1/discover', (request, response) => {
   response.setHeader('Content-Type', 'application/json');
