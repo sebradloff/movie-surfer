@@ -26,10 +26,13 @@ app.get('/api/v1/discover', (request, response) => {
   response.send(JSON.stringify(discoverMoviesJSON));
 });
 
-app.get('/api/v2/discover', (request, response) => {
-  fetch(`${config.movie_db_service}/discover/movie?sort_by=popularity.desc&page=1&api_key=${config.movie_db_api_key}`, {
-    method: 'GET'
-  })
+app.get('/api/v2/discover/:pageNumber', (request, response) => {
+  /* eslint max-len: ["error", 150] */
+  fetch(`${config.movie_db_service}/discover/movie?sort_by=popularity.desc&page=${request.params.pageNumber}&api_key=${config.movie_db_api_key}`,
+    {
+      method: 'GET'
+    }
+  )
   .then(res => {
     return res.json();
   })

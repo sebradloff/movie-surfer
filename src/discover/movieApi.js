@@ -2,8 +2,8 @@ import fetch from 'isomorphic-fetch';
 
 class MovieApi {
 
-  discover(successCallback, failureCallback) {
-    fetch('/api/v2/discover', {
+  discover(successCallback, failureCallback, nextPage = 1) {
+    fetch(`/api/v2/discover/${nextPage}`, {
       method: 'GET'
     })
     .then(response => {

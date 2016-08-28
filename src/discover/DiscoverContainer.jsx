@@ -4,6 +4,7 @@ import deepEquals from 'deep-equal';
 import MovieApi from './movieApi';
 import Spinner from '../common/spinner/Spinner';
 import DiscoverMovies from './DiscoverMovies';
+import Navigator from '../common/navigation/Navigator';
 
 export default class DiscoverContainer extends React.Component {
 
@@ -14,6 +15,7 @@ export default class DiscoverContainer extends React.Component {
     this.movieApi = new MovieApi();
     this.successCallback = this.successCallback.bind(this);
     this.errorCallback = this.errorCallback.bind(this);
+    this.discoverMoreOnClick = this.discoverMoreOnClick.bind(this);
   }
 
   componentDidMount() {
@@ -39,13 +41,31 @@ export default class DiscoverContainer extends React.Component {
     });
   }
 
+  discoverMoreOnClick(event) {
+    let nextPage = 1;
+    if (event.target.id === 'right-arrow') {
+      nextPage = this.state.movieData.page + 1;
+    } else if (event.target.id === 'left-arrow') {
+      nextPage = this.state.movieData.page - 1;
+    }
+
+    this.setState({ movieData: {} });
+    this.movieApi.discover(this.successCallback, this.errorCallback, nextPage);
+  }
+
   render() {
     let jsx;
     if (deepEquals(this.state.movieData, {})) {
       jsx = <Spinner />;
     } else {
       const movies = this.state.movieData.results;
-      jsx = <DiscoverMovies movies={movies} />;
+      const currentPage = this.state.movieData.page;
+      jsx = (
+        <div>
+          <Navigator onClick={this.discoverMoreOnClick} currentPage={currentPage} />
+          <DiscoverMovies movies={movies} />
+        </div>
+      );
     }
     return jsx;
   }
