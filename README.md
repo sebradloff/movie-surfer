@@ -5,8 +5,14 @@ To show how to create a React standardized project
   - Webpack and `.babelrc` configurations.
   - How to think about React components.
 
+## Production
+  - The app is currently running [here](https://movie-surfer.herokuapp.com/) on Heroku.
+
 ## To Run this Project
   - `$ npm install` to install all dependencies
+  - `$ npm run build:semantic` to install the semantic bundle
+  - You will need your own [**The Movie DB** api key](https://www.themoviedb.org/documentation/api)
+  - Set the environment variable `MOVIE_DB_API_KEY=***YOUR_API_KEY***`
   - `$ npm run dev` to run webpack and the node server
 
 ## ToDo
