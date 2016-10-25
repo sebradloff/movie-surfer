@@ -17,6 +17,22 @@ class MovieApi {
       failureCallback(error);
     });
   }
+
+  searchMovie(successCallback, failureCallback, searchQuery) {
+    fetch(`/api/v1/movies?query=${searchQuery}`, {
+      method: 'GET'
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(results => {
+      successCallback(results);
+    })
+    .catch(error => {
+      console.error(`Error occurred while fetching search results for ${searchQuery}`, error);
+      failureCallback(error);
+    });
+  }
 }
 
 export default MovieApi;

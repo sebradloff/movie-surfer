@@ -42,6 +42,25 @@ app.get('/api/v2/discover/:pageNumber', (request, response) => {
   });
 });
 
+app.get('/api/v1/movies', (request, response) => {
+  /* eslint max-len: ["error", 150] */
+  fetch(`${config.movie_db_service}/search/movie?language=en-US&query=${request.query.query}&api_key=${config.movie_db_api_key}`,
+    {
+      method: 'GET'
+    }
+  )
+  .then(res => {
+    return res.json();
+  })
+  .then(movies => {
+    return response.status(HTTPStatus.OK).json(movies);
+  })
+  .catch(error => {
+    console.error('Error occurred while fetching movies', error);
+    return response.sendStatus(HTTPStatus.INTERNAL_SERVER_ERROR);
+  });
+});
+
 /* serve index.html on all routes */
 /* keep this on the bottom as it is a catch all route */
 app.get('*', (request, response) => {
