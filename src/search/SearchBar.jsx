@@ -1,7 +1,7 @@
 import React from 'react';
 import { Search } from 'semantic-ui-react';
 
-import MovieApi from '../discover/movieApi';
+import MovieApi from '../api/movieApi';
 
 export default class SearchBar extends React.Component {
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import deepEquals from 'deep-equal';
 
-import MovieApi from './movieApi';
+import MovieApi from '../api/movieApi';
 import Spinner from '../common/spinner/Spinner';
 import DiscoverMovies from './DiscoverMovies';
 import Navigator from '../common/navigation/Navigator';
