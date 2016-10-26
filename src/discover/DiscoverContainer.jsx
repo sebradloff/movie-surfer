@@ -46,10 +46,14 @@ export default class DiscoverContainer extends React.Component {
 
   discoverMoreOnClick(event) {
     let nextPage = 1;
+
     const currentPage = this.state.movieData.page;
-    if (event.target.id === 'right-arrow') {
+    const rightArrowClicked = (event.target.id === 'right-arrow' || event.target.className === 'arrow right icon');
+    const leftArrowClicked = (event.target.id === 'left-arrow' || event.target.className === 'arrow left icon');
+
+    if (rightArrowClicked) {
       nextPage = currentPage + 1;
-    } else if (event.target.id === 'left-arrow' && currentPage !== 1) {
+    } else if (leftArrowClicked && currentPage !== 1) {
       nextPage = currentPage - 1;
     }
 
