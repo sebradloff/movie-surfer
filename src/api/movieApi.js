@@ -16,7 +16,7 @@ class MovieApi {
   }
 
   searchMovie(successCallback, failureCallback, searchQuery) {
-    fetchJSON(`/api/v1/movies?query=${searchQuery}`, {
+    fetchJSON(`${document.location.origin}/api/v1/movies?query=${searchQuery}`, {
       method: 'GET'
     })
     .then(results => {
