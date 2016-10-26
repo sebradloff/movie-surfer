@@ -9,9 +9,8 @@
     "dev": "concurrently \"webpack --config webpack/webpack.config.js --watch\" \"node server.js\"",
     "test": "mocha",
     "lint:browser": "eslint --config=./.eslintrc src/*.js*",
-    "build:semantic": "cd semantic && gulp build",
     "postinstall": "if [ \"$NODE_ENV\" = \"production\" ]; then npm run build:heroku; fi",
-    "build:heroku": "webpack --config webpack/webpack.prod.config.js && npm run build:semantic"
+    "build:heroku": "webpack --config webpack/webpack.prod.config.js"
   },
   "author": "",
   "license": "ISC",
