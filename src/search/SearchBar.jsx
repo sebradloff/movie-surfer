@@ -24,6 +24,7 @@ export default class SearchBar extends React.Component {
   onResultSelection(event) {
     const movieId = event.target.dataset.id;
     browserHistory.push(`/movies/${movieId}`);
+    this.resetComponent();
   }
 
   searchForMovie(e, searchValue) {
