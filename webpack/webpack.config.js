@@ -1,7 +1,6 @@
 // using require is how you include node_modules and other files into the current module
 // CommonJS and module pattern explanation: https://webpack.github.io/docs/commonjs.html
 const path = require('path');
-const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PATHS = {
@@ -33,11 +32,6 @@ const Config = {
   },
   // make jquery available accross all modules, therefore you don't need to require it constantly
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery'
-    }),
     // takes the converted css file from the loader and publishes it to styles.css
     new ExtractTextPlugin(path.join(PATHS.distCSS, '/styles.css'))
   ],
