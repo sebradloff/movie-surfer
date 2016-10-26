@@ -31,8 +31,8 @@ export default class SearchBar extends React.Component {
     this.setState({ isLoading: false, results });
   }
 
-  failureCallback(error) {
-    console.log('error', error);
+  failureCallback() {
+    this.setState({ isLoading: false, results: [] });
   }
 
   searchForMovie(e, searchValue) {

@@ -11,7 +11,7 @@ class MovieApi {
     })
     .catch(error => {
       console.error('Error occurred while fetching leads', error);
-      failureCallback(error);
+      failureCallback();
     });
   }
 
