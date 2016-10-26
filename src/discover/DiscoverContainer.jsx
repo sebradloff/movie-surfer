@@ -1,5 +1,4 @@
 import React from 'react';
-import deepEquals from 'deep-equal';
 
 import MovieApi from '../api/movieApi';
 import Spinner from '../common/spinner/Spinner';
@@ -24,19 +23,23 @@ export default class DiscoverContainer extends React.Component {
 
   initialState() {
     return {
+      isLoading: true,
       movieData: {},
-      error: null
+      error: false
     };
   }
 
   successCallback(movies) {
     this.setState({
-      movieData: movies
+      isLoading: false,
+      movieData: movies,
+      error: false
     });
   }
 
   errorCallback(error) {
     this.setState({
+      isLoading: false,
       error
     });
   }
@@ -50,17 +53,20 @@ export default class DiscoverContainer extends React.Component {
       nextPage = currentPage - 1;
     }
 
-    this.setState({ movieData: {} });
+    this.setState({ isLoading: true, movieData: {} });
     this.movieApi.discover(this.successCallback, this.errorCallback, nextPage);
   }
 
   render() {
+    const { movieData, error, isLoading } = this.state;
     let jsx;
-    if (deepEquals(this.state.movieData, {})) {
+    if (error) {
+      jsx = <div>Sorry but we got some problems to fix!</div>;
+    } else if (isLoading) {
       jsx = <Spinner />;
     } else {
-      const movies = this.state.movieData.results;
-      const currentPage = this.state.movieData.page;
+      const movies = movieData.results;
+      const currentPage = movieData.page;
       jsx = (
         <div>
           <Navigator onClick={this.discoverMoreOnClick} currentPage={currentPage} />
