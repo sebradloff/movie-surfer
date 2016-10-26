@@ -29,7 +29,9 @@ describe('SearchBar', () => {
 
       const takenMovieId = 8681;
       const takenMovie = searchBarWrapper.find('SearchResult')
-        .filterWhere(searchResult => searchResult.props().value === takenMovieId);
+        .filterWhere((searchResult) => {
+          return searchResult.props().value === takenMovieId;
+        });
       expect(takenMovie.props().title).toEqual('Taken');
       expect(takenMovie.props().value).toEqual(takenMovieId);
       done();
