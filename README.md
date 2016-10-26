@@ -39,7 +39,7 @@ To show how to create a React standardized project
   4. Comments in the `index.js` file should help explain the routing configuration.
 
 ### semantic-ui
-  > [**semantic-ui**](http://semantic-ui.com/) is a great development framework to create responsive websites that are cross browser compatible.
+  > [**semantic-ui**](http://react.semantic-ui.com/introduction) is a great development framework to create responsive websites that are cross browser compatible.
 
   > I'm using semantic-ui-react also known as Stardust, which is the reactified version of semantic. They're not completely finished with converting all of semantic, but it honestly has most of everything you could need.
 
