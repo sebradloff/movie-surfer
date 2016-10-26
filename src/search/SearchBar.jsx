@@ -24,14 +24,15 @@ export default class SearchBar extends React.Component {
   }
 
   successCallback(apiResults) {
-    const results = apiResults.results.map((movie) => {
-      return { title: movie.title, id: movie.id };
+    const firstEightMovies = apiResults.results.slice(0, 8);
+    const results = firstEightMovies.map((movie) => {
+      return { title: movie.title, value: movie.id };
     });
     this.setState({ isLoading: false, results });
   }
 
   failureCallback(error) {
-    console.log('shit');
+    console.log('error', error);
   }
 
   searchForMovie(e, searchValue) {
@@ -40,9 +41,8 @@ export default class SearchBar extends React.Component {
     this.movieApi.searchMovie(this.successCallback, this.failureCallback, searchValue);
   }
 
-  resultRenderer({ title, id }) {
-    const key = Math.round(10000 * Math.random());
-    return (<div value={id} key={key}>{title}</div>);
+  resultRenderer({ title, value }) {
+    return (<div><a href={`/movies/${value}`}>{title}</a></div>);
   }
 
   render() {
