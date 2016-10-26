@@ -7,7 +7,6 @@ To show how to create a React standardized project
 
 ## To Run this Project
   - `$ npm install` to install all dependencies
-  - `$ npm run build:semantic` to install the semantic bundle
   - `$ npm run dev` to run webpack and the node server
 
 ## ToDo
@@ -39,16 +38,11 @@ To show how to create a React standardized project
   3. Create an `index.js` file in the src folder. This file will contain all the routes for you application.
   4. Comments in the `index.js` file should help explain the routing configuration.
 
-### semantic-ui and jQuery
+### semantic-ui
   > [**semantic-ui**](http://semantic-ui.com/) is a great development framework to create responsive websites that are cross browser compatible.
 
-  1. `$ npm install --save semantic-ui`
-  2. You want to create a script in the `package.json` file which will run the gulp command to create all the semantic components. I've called it **build:semantic**.
-  3. Serve up the `semantic` folder in the `server.js` file, then include the minified semantic css and js in the `index.html` as I've done.
-  4. `$ npm install --save jquery`
-  5. jQuery is necessary for semantic and the easiest way I've found to add it is to serve it statically in the `index.js` file and then include it in the `index.html`.
-  6. In the webpack config use the ProvidePlugin to add jquery, which makes it available to all react components.
-  7. Until [Startdust](https://github.com/TechnologyAdvice/stardust) is completed, you need to include jQuery when using semantic.
+  > I'm using semantic-ui-react also known as Stardust, which is the reactified version of semantic. They're not completely finished with converting all of semantic, but it honestly has most of everything you could need.
+  1. `$ npm install --save semantic-ui-react`
 
 ### mocha and enzyme (testing)
   > using [mocha](https://mochajs.org/) as a testing framework. A [`mocha.opts`](https://mochajs.org/#mochaopts) file under the test folder contains command line arguments as options for mocha tests.
