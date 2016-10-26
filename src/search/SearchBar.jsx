@@ -25,8 +25,8 @@ export default class SearchBar extends React.Component {
 
   successCallback(apiResults) {
     const firstEightMovies = apiResults.results.slice(0, 8);
-    const results = firstEightMovies.map((movie) => {
-      return { title: movie.title, value: movie.id };
+    const results = firstEightMovies.map((movie, index) => {
+      return { title: movie.title, value: movie.id, childKey: index };
     });
     this.setState({ isLoading: false, results });
   }
