@@ -42,6 +42,7 @@ To show how to create a React standardized project
   > [**semantic-ui**](http://semantic-ui.com/) is a great development framework to create responsive websites that are cross browser compatible.
 
   > I'm using semantic-ui-react also known as Stardust, which is the reactified version of semantic. They're not completely finished with converting all of semantic, but it honestly has most of everything you could need.
+
   1. `$ npm install --save semantic-ui-react`
 
 ### mocha and enzyme (testing)
