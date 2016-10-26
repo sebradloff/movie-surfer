@@ -44,6 +44,7 @@
     "expect": "^1.20.1",
     "jsdom": "^9.2.1",
     "mocha": "^2.5.3",
+    "nock": "^9.0.0",
     "node-libs-browser": "^1.0.0",
     "path": "^0.12.7",
     "react-addons-test-utils": "^15.1.0",
