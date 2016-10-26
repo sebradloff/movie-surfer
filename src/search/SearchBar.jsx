@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import { Search } from 'semantic-ui-react';
 
 import MovieApi from '../api/movieApi';
@@ -13,10 +14,26 @@ export default class SearchBar extends React.Component {
     this.failureCallback = this.failureCallback.bind(this);
     this.searchForMovie = this.searchForMovie.bind(this);
     this.resultRenderer = this.resultRenderer.bind(this);
+    this.onResultSelection = this.onResultSelection.bind(this);
   }
 
   componentWillMount() {
     this.resetComponent();
+  }
+
+  onResultSelection(event) {
+    const movieId = event.target.dataset.id;
+    browserHistory.push(`/movies/${movieId}`);
+  }
+
+  searchForMovie(e, searchValue) {
+    this.setState({ isLoading: true, value: searchValue });
+
+    this.movieApi.searchMovie(this.successCallback, this.failureCallback, searchValue);
+  }
+
+  resultRenderer({ title, value }) {
+    return (<div data-id={value}>{title}</div>);
   }
 
   resetComponent() {
@@ -35,16 +52,6 @@ export default class SearchBar extends React.Component {
     this.setState({ isLoading: false, results: [] });
   }
 
-  searchForMovie(e, searchValue) {
-    this.setState({ isLoading: true, value: searchValue });
-
-    this.movieApi.searchMovie(this.successCallback, this.failureCallback, searchValue);
-  }
-
-  resultRenderer({ title, value }) {
-    return (<div><a href={`/movies/${value}`}>{title}</a></div>);
-  }
-
   render() {
     const { isLoading, value, results } = this.state;
 
@@ -53,6 +60,7 @@ export default class SearchBar extends React.Component {
         aligned="right"
         loading={isLoading}
         onSearchChange={this.searchForMovie}
+        onChange={this.onResultSelection}
         results={results}
         resultRenderer={this.resultRenderer}
         value={value}
