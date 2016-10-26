@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-fetch';
 import fetchJSON from './fetchWrapper';
 
 class MovieApi {
@@ -17,11 +16,8 @@ class MovieApi {
   }
 
   searchMovie(successCallback, failureCallback, searchQuery) {
-    fetch(`/api/v1/movies?query=${searchQuery}`, {
+    fetchJSON(`/api/v1/movies?query=${searchQuery}`, {
       method: 'GET'
-    })
-    .then(response => {
-      return response.json();
     })
     .then(results => {
       successCallback(results);
