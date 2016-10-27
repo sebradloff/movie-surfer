@@ -1,4 +1,4 @@
---require test/utils/dom.js
+--require test/dom.js
 --compilers jsx?:babel-core/register
 --recursive
 --reporter nyan
