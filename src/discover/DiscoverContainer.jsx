@@ -37,10 +37,10 @@ export default class DiscoverContainer extends React.Component {
     });
   }
 
-  errorCallback(error) {
+  errorCallback() {
     this.setState({
       isLoading: false,
-      error
+      error: true
     });
   }
 

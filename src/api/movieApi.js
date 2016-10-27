@@ -3,15 +3,15 @@ import fetchJSON from './fetchWrapper';
 class MovieApi {
 
   discover(successCallback, failureCallback, nextPage = 1) {
-    fetchJSON(`/api/v2/discover/${nextPage}`, {
+    fetchJSON(`${document.location.origin}/api/v2/discover/${nextPage}`, {
       method: 'GET'
     })
     .then(movies => {
       successCallback(movies);
     })
     .catch(error => {
-      console.error('Error occurred while fetching leads', error);
       failureCallback();
+      console.error('Error occurred while fetching discovery movies', error);
     });
   }
 
