@@ -7,7 +7,7 @@
     "start": "node server.js",
     "//": "lint browser is responsible for linting browser specifc code",
     "dev": "concurrently \"webpack --config webpack/webpack.config.js --watch\" \"node server.js\"",
-    "test": "mocha",
+    "test": "NODE_ENV=test mocha",
     "lint:browser": "eslint --config=./.eslintrc src/**/*.js*",
     "postinstall": "if [ \"$NODE_ENV\" = \"production\" ]; then npm run build:heroku; fi",
     "build:heroku": "webpack --config webpack/webpack.prod.config.js"
