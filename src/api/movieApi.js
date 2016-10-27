@@ -1,4 +1,5 @@
 import fetchJSON from './fetchWrapper';
+import logger from '../utils/logger';
 
 class MovieApi {
 
@@ -11,7 +12,7 @@ class MovieApi {
     })
     .catch(error => {
       failureCallback();
-      console.error('Error occurred while fetching discovery movies', error);
+      logger('error', 'Error occurred while fetching discovery movies', error);
     });
   }
 
@@ -23,8 +24,8 @@ class MovieApi {
       successCallback(results);
     })
     .catch(error => {
-      console.error(`Error occurred while fetching search results for ${searchQuery}`, error);
       failureCallback(error);
+      logger('error', `Error occurred while fetching search results for '${searchQuery}'`, error);
     });
   }
 }
