@@ -7,7 +7,7 @@ import { mount } from 'enzyme';
 import path from 'path';
 import fs from 'fs';
 
-const fileLocation = path.join(__dirname, '../../src/discover/movies.json');
+const fileLocation = path.join(__dirname, './movies.json');
 const movieResponseJSON = JSON.parse(fs.readFileSync(fileLocation));
 
 describe('DiscoverContainer', () => {
