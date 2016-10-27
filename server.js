@@ -16,7 +16,7 @@ app.use('/dist', express.static(distDir));
 
 /* this call returns JSON from a file */
 /* this is nice for intial UI creation if you're not able to work with the api directly */
-const moviesJSONFile = path.join(__dirname, 'src/discover/movies.json');
+const moviesJSONFile = path.join(__dirname, 'test/discover/movies.json');
 const discoverMoviesJSON = JSON.parse(fs.readFileSync(moviesJSONFile, 'utf8'));
 app.get('/api/v1/discover', (request, response) => {
   response.setHeader('Content-Type', 'application/json');
