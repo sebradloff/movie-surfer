@@ -28,6 +28,19 @@ class MovieApi {
       logger('error', `Error occurred while fetching search results for '${searchQuery}'`, error);
     });
   }
+
+  movie(successCallback, failureCallback, movieID) {
+    fetchJSON(`${document.location.origin}/api/v1/movies/${movieID}`, {
+      method: 'GET'
+    })
+    .then(movie => {
+      successCallback(movie);
+    })
+    .catch(error => {
+      failureCallback();
+      logger('error', `Error occurred while fetching movie ${movieID}`, error);
+    });
+  }
 }
 
 export default MovieApi;

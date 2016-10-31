@@ -62,6 +62,24 @@ app.get('/api/v1/movies', (request, response) => {
   });
 });
 
+app.get('/api/v1/movies/:id', (request, response) => {
+  fetch(`${config.movie_db_service}/movie/${request.params.id}?&language=en-US&api_key=${config.movie_db_api_key}`,
+    {
+      method: 'GET'
+    }
+  )
+  .then(res => {
+    return res.json();
+  })
+  .then(movie => {
+    return response.status(HTTPStatus.OK).json(movie);
+  })
+  .catch(error => {
+    console.error(`Error occurred while fetching movie ${request.params.id}`, error);
+    return response.sendStatus(HTTPStatus.INTERNAL_SERVER_ERROR);
+  });
+});
+
 /* serve index.html on all routes */
 /* keep this on the bottom as it is a catch all route */
 app.get('*', (request, response) => {
