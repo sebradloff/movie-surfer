@@ -25,7 +25,10 @@ class DetailedMovieCardContainer extends React.Component {
   }
 
   componentDidUpdate() {
-    this.newMovieSelected();
+    const newMovieSelected = this.props.params.id !== this.state.movieId;
+    if (newMovieSelected) {
+      this.newMovieSelected();
+    }
   }
 
   newMovieSelected() {
@@ -37,7 +40,8 @@ class DetailedMovieCardContainer extends React.Component {
     return {
       isLoading: true,
       movieData: {},
-      error: false
+      error: false,
+      movieId: this.props.params.id
     };
   }
 
@@ -45,7 +49,8 @@ class DetailedMovieCardContainer extends React.Component {
     this.setState({
       isLoading: false,
       movieData: movie,
-      error: false
+      error: false,
+      movieId: this.props.params.id
     });
   }
 
