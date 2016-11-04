@@ -59,6 +59,7 @@ export default class SearchBar extends React.Component {
     return (
       <Search
         aligned="right"
+        placeholder="Search for a Movie"
         loading={isLoading}
         onSearchChange={this.searchForMovie}
         onChange={this.onResultSelection}
