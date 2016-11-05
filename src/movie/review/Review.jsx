@@ -26,7 +26,7 @@ class Review extends React.Component {
   }
 
   render() {
-    const { author } = this.props.info.author;
+    const { author } = this.props.info;
     const { reviewJsx } = this.state;
     return (
       <div className="review">
