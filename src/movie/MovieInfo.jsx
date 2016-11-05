@@ -10,6 +10,8 @@ const MovieInfo = ({ info }) => {
     <div className="movie-info">
       <div className="ui blue ribbon label">Movie Info</div>
       <ReleaseDate date={info.release_date} />
+      <div><strong>Runtime: </strong>{info.runtime} min</div>
+      <br />
       <div>{info.overview}</div>
     </div>
   );
