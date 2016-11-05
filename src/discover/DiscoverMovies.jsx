@@ -10,8 +10,7 @@ const DiscoverMovies = ({ movies }) => {
     <div className="ui padded stackable centered grid">
       {movies.map((movie) => {
         return <MovieCard key={movie.id} info={movie} />;
-      })
-      }
+      })}
     </div>
   );
 };
