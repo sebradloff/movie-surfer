@@ -27,6 +27,7 @@
     "http-status": "^0.2.3",
     "isomorphic-fetch": "^2.2.1",
     "less-loader": "^2.2.3",
+    "moment": "^2.15.2",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-router": "^2.4.1",
