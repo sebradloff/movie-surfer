@@ -62,7 +62,7 @@ class DetailedMovieCardContainer extends React.Component {
   }
 
   render() {
-    const { movieData, error, isLoading } = this.state;
+    const { movieData, error, isLoading, movieId } = this.state;
     let jsx;
     if (error) {
       jsx = <div>Sorry but we got some problems to fix!</div>;
@@ -70,7 +70,7 @@ class DetailedMovieCardContainer extends React.Component {
       jsx = <Spinner />;
     } else {
       jsx = (
-        <DetailedMovieCard info={movieData} />
+        <DetailedMovieCard info={movieData} movieId={movieId} />
       );
     }
     return jsx;

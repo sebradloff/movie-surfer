@@ -1,12 +1,14 @@
 import React from 'react';
 import Rating from './Rating';
 import MovieInfo from './MovieInfo';
+import ReviewsContainer from './review/ReviewsContainer';
 
 const propTypes = {
-  info: React.PropTypes.object.isRequired
+  info: React.PropTypes.object.isRequired,
+  movieId: React.PropTypes.string.isRequired
 };
 
-const DetailedMovieCard = ({ info }) => {
+const DetailedMovieCard = ({ info, movieId }) => {
   return (
     <div id="detailed-movie-card" className="ui padded grid">
       <div className="six wide column">
@@ -19,6 +21,7 @@ const DetailedMovieCard = ({ info }) => {
       </div>
       <div id="right-side" className="ten wide column">
         <MovieInfo info={info} />
+        <ReviewsContainer movieId={movieId} />
       </div>
     </div>
   );
