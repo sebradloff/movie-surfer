@@ -11,8 +11,8 @@ class MovieApi {
       successCallback(movies);
     })
     .catch(error => {
-      failureCallback();
       logger('error', 'Error occurred while fetching discovery movies', error);
+      failureCallback();
     });
   }
 
@@ -24,8 +24,8 @@ class MovieApi {
       successCallback(results);
     })
     .catch(error => {
-      failureCallback(error);
       logger('error', `Error occurred while fetching search results for '${searchQuery}'`, error);
+      failureCallback(error);
     });
   }
 
@@ -37,8 +37,8 @@ class MovieApi {
       successCallback(movie);
     })
     .catch(error => {
-      failureCallback();
       logger('error', `Error occurred while fetching movie ${movieID}`, error);
+      failureCallback();
     });
   }
 
@@ -50,8 +50,8 @@ class MovieApi {
       successCallback(movie);
     })
     .catch(error => {
-      failureCallback();
       logger('error', `Error occurred while fetching movie ${movieID}`, error);
+      failureCallback();
     });
   }
 }
