@@ -20,21 +20,25 @@ class ReviewsContainer extends React.Component {
     this.errorCallback = this.errorCallback.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const movieId = this.props.movieId;
     this.movieApi.movieReviews(this.successCallback, this.failureCallback, movieId);
   }
 
   componentDidUpdate() {
-    const movieId = this.props.movieId;
-    this.movieApi.movieReviews(this.successCallback, this.failureCallback, movieId);
+    const newMovieSelected = this.props.movieId !== this.state.movieId;
+    if (newMovieSelected) {
+      const movieId = this.props.movieId;
+      this.movieApi.movieReviews(this.successCallback, this.failureCallback, movieId);
+    }
   }
 
   successCallback(reviews) {
     this.setState({
       isLoading: false,
       error: false,
-      reviews: reviews.results
+      reviews: reviews.results,
+      movieId: this.props.movieId
     });
   }
 
@@ -42,7 +46,8 @@ class ReviewsContainer extends React.Component {
     return {
       isLoading: true,
       error: false,
-      reviews: []
+      reviews: [],
+      movieId: this.props.movieId
     };
   }
 
