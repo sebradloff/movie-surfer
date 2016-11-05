@@ -25,6 +25,11 @@ class ReviewsContainer extends React.Component {
     this.movieApi.movieReviews(this.successCallback, this.failureCallback, movieId);
   }
 
+  componentDidUpdate() {
+    const movieId = this.props.movieId;
+    this.movieApi.movieReviews(this.successCallback, this.failureCallback, movieId);
+  }
+
   successCallback(reviews) {
     this.setState({
       isLoading: false,
