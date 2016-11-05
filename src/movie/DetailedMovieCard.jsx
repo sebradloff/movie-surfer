@@ -1,6 +1,6 @@
 import React from 'react';
 import Rating from './Rating';
-import ReleaseDate from './ReleaseDate';
+import MovieInfo from './MovieInfo';
 
 const propTypes = {
   info: React.PropTypes.object.isRequired
@@ -16,8 +16,7 @@ const DetailedMovieCard = ({ info }) => {
         <div className="tagline">{info.tagline}</div>
       </div>
       <div id="right-side" className="ten wide column">
-        <ReleaseDate date={info.release_date} />
-        <div>{info.overview}</div>
+        <MovieInfo info={info} />
       </div>
     </div>
   );
