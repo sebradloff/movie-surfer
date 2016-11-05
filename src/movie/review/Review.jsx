@@ -14,7 +14,7 @@ class Review extends React.Component {
 
     if (reviewText.length > 250) {
       const truncatedText = reviewText.slice(0, 250);
-      reviewJsx = (<div>{truncatedText}...><button onClick={this.seeMoreClicked}>See More</button></div>);
+      reviewJsx = (<div>{truncatedText}... <a onClick={this.seeMoreClicked}>See More</a></div>);
     } else {
       reviewJsx = (<div>{reviewText}</div>);
     }
