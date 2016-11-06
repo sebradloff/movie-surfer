@@ -57,7 +57,8 @@ describe('DiscoverContainer', () => {
   });
 
   describe('clicking on the navigation', () => {
-    it('should load the next page when the right arrow is clicked', (done) => {
+    /* eslint max-len: ["error", 160] */
+    it('should load the next page when the right arrow is clicked and load the previous page when the left arrow is clicked', (done) => {
       // given
       nock('http://localhost:8080')
             .get('/api/v2/discover/1')
@@ -66,21 +67,28 @@ describe('DiscoverContainer', () => {
       nock('http://localhost:8080')
             .get('/api/v2/discover/2')
             .reply(200, movieResponse2JSON);
+
+      nock('http://localhost:8080')
+            .get('/api/v2/discover/1')
+            .reply(200, movieResponseJSON);
       // when
       const discoverContainerWrapper = mount(<DiscoverContainer />);
       setTimeout(() => {
-        let navigator = discoverContainerWrapper.find('Navigator');
-        expect(navigator.text()).toEqual('Results 1-20');
-
-        // then
         const rightArrow = discoverContainerWrapper.find('#right-arrow');
         rightArrow.simulate('click', {});
 
         setTimeout(() => {
-          navigator = discoverContainerWrapper.find('Navigator');
+          let navigator = discoverContainerWrapper.find('Navigator');
           expect(navigator.text()).toEqual('Results 21-40');
+
+          const leftArrow = discoverContainerWrapper.find('#left-arrow');
+          leftArrow.simulate('click', {});
+          setTimeout(() => {
+            navigator = discoverContainerWrapper.find('Navigator');
+            expect(navigator.text()).toEqual('Results 1-20');
+            done();
+          }, 100);
         }, 100);
-        done();
       }, 100);
     });
   });
