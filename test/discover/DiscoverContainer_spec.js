@@ -10,6 +10,9 @@ import fs from 'fs';
 const fileLocation = path.join(__dirname, './movies.json');
 const movieResponseJSON = JSON.parse(fs.readFileSync(fileLocation));
 
+const movieResponsePage2 = path.join(__dirname, './movies_page_2.json');
+const movieResponse2JSON = JSON.parse(fs.readFileSync(movieResponsePage2));
+
 describe('DiscoverContainer', () => {
   it('should render all movies from response on load', (done) => {
     // given
@@ -51,6 +54,35 @@ describe('DiscoverContainer', () => {
     setTimeout(() => {
       expect(discoverContainerWrapper.html()).toEqual('<div>Sorry but we got some problems to fix!</div>');
     }, 100);
+  });
+
+  describe('clicking on the navigation', () => {
+    it('should load the next page when the right arrow is clicked', (done) => {
+      // given
+      nock('http://localhost:8080')
+            .get('/api/v2/discover/1')
+            .reply(200, movieResponseJSON);
+
+      nock('http://localhost:8080')
+            .get('/api/v2/discover/2')
+            .reply(200, movieResponse2JSON);
+      // when
+      const discoverContainerWrapper = mount(<DiscoverContainer />);
+      setTimeout(() => {
+        let navigator = discoverContainerWrapper.find('Navigator');
+        expect(navigator.text()).toEqual('Results 1-20');
+
+        // then
+        const rightArrow = discoverContainerWrapper.find('#right-arrow');
+        rightArrow.simulate('click', {});
+
+        setTimeout(() => {
+          navigator = discoverContainerWrapper.find('Navigator');
+          expect(navigator.text()).toEqual('Results 21-40');
+        }, 100);
+        done();
+      }, 100);
+    });
   });
 
   afterEach(() => {
