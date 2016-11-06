@@ -14,7 +14,7 @@ const calucluateResultsRange = (pageNumber) => {
 
 const Navigator = ({ onClick, currentPage }) => {
   return (
-    <div>
+    <div id="navigator">
       <div>
         Results {calucluateResultsRange(currentPage)}
       </div>
