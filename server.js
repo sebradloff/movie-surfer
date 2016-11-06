@@ -8,12 +8,12 @@ const config = require('./config');
 const fs = require('fs');
 const port = process.env.PORT || 8080;
 
-/* serve up jquery from node_modules */
-const jquery = path.join(__dirname, 'node_modules', 'jquery', 'dist', 'jquery.min.js');
-app.use('/dist/js/jquery.min.js', express.static(jquery));
 /* serve dist which contains bundled resources */
-const distDir = path.join(__dirname, 'dist/');
+const distDir = path.join(__dirname, 'dist');
 app.use('/dist', express.static(distDir));
+
+const imagesDir = path.join(__dirname, 'src', 'images');
+app.use('/images', express.static(imagesDir));
 
 /* this call returns JSON from a file */
 /* this is nice for intial UI creation if you're not able to work with the api directly */
