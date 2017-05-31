@@ -8,3 +8,5 @@ RUN npm install
 ARG MOVIE_DB_API_KEY
 
 EXPOSE 8080
+
+ENTRYPOINT ["npm", "start"]
